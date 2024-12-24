@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Employee;
+import com.example.demo.model.EmployeeModel;
 import com.example.demo.repository.EmployeeRepository;
 
 @Service
@@ -18,19 +18,19 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
     
-    public List<Employee> getAllEmployees() {
+    public List<EmployeeModel> getAllEmployees() {
         return employeeRepository.findAll();
     }
     
     public void exportToFile() throws IOException {
-        List<Employee> employees = getAllEmployees();
+        List<EmployeeModel> employees = getAllEmployees();
         
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("employees.csv"))) {
             // CSV 헤더 작성
             writer.write("ID,이름,이메일,부서\n");
             
             // 직원 데이터 작성
-            for (Employee employee : employees) {
+            for (EmployeeModel employee : employees) {
                 writer.write(String.format("%d,%s,%s,%s%n",
                     employee.getId(),
                     employee.getName(),

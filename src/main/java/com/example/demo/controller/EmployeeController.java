@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Employee;
+import com.example.demo.model.EmployeeModel;
 import com.example.demo.service.EmployeeService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,9 +25,9 @@ public class EmployeeController {
     }
     
     @GetMapping
-    public ResponseEntity<List<Employee>> getAllEmployees() {
+    public ResponseEntity<List<EmployeeModel>> getAllEmployees() {
         try {
-            List<Employee> employees = employeeService.getAllEmployees();
+            List<EmployeeModel> employees = employeeService.getAllEmployees();
             return ResponseEntity.ok(employees);
         } catch (Exception e) {
             log.error("직원 목록 조회 실패", e);
