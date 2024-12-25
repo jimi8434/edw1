@@ -42,6 +42,9 @@ dependencies {
 	
 	// HikariCP 커넥션 풀
 	implementation 'com.zaxxer:HikariCP:5.0.1'
+	
+	// OpenCSV 최신 버전 의존성 추가
+	implementation 'com.opencsv:opencsv:5.9'
 }
 
 test {
